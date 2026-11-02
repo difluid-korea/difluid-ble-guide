@@ -1,0 +1,58 @@
+# DiFluid R2 캡처 · capture — 2026-11-01 18:22:59 KST · 기기 · unit C
+# calibration command (distilled water)
+# 가린 사본 · redacted copy: 주소 · addresses → <MAC-…>, 이름 번호 · name digits → NNNNNN-…, SN 바이트 · serial bytes → xx
+# 시각은 첫 송신 기준(초) · times are seconds from the first write. TX = 보낸 것 · sent, RX = 받은 것 · received, └ = 캡처 도구의 해석 · capture tool's decode
+
+주소 지정 — 스캔으로 캐시 채우는 중: <MAC-C>
+연결됨: <MAC-C>
+── GATT 맵 ──
+  service 000000ff-0000-1000-8000-00805f9b34fb
+    char 0000aa01-0000-1000-8000-00805f9b34fb  props=['read', 'write', 'notify']
+    char 0000ff01-0000-1000-8000-00805f9b34fb  props=['read', 'write', 'notify']
+  service 00001800-0000-1000-8000-00805f9b34fb
+    char 00002a01-0000-1000-8000-00805f9b34fb  props=['read']
+    char 00002aa6-0000-1000-8000-00805f9b34fb  props=['read']
+    char 00002a00-0000-1000-8000-00805f9b34fb  props=['read']
+  service 00001801-0000-1000-8000-00805f9b34fb
+    char 00002a05-0000-1000-8000-00805f9b34fb  props=['indicate']
+구독: 0000aa01-0000-1000-8000-00805f9b34fb
+구독: 0000ff01-0000-1000-8000-00805f9b34fb
+구독: 00002a05-0000-1000-8000-00805f9b34fb
+쓰기 특성: 0000aa01-0000-1000-8000-00805f9b34fb
+[   0.000s] TX SN len= 6  df df 00 00 00 be  
+[   0.075s] RX[aa01] len=12  df df 00 00 06 00 xx xx xx xx xx xx  
+           └ df df 00 00 06 00 xx xx xx xx xx xx  (SN 청크0 '*****')
+[   0.076s] RX[aa01] len=12  df df 00 00 06 01 xx xx xx xx xx xx  
+           └ df df 00 00 06 01 xx xx xx xx xx xx  (SN 청크1 '*****')
+[   0.077s] RX[aa01] len=12  df df 00 00 06 02 xx xx xx xx xx xx  
+           └ df df 00 00 06 02 xx xx xx xx xx xx  (SN 청크2 '*****')
+[   0.376s] TX model len= 6  df df 00 01 00 bf  
+[   0.450s] RX[aa01] len=14  df df 00 01 08 44 46 54 2d 52 31 30 32 b7  
+           └ df df 00 01 08 44 46 54 2d 52 31 30 32 b7  (info cmd1 'DFT-R102')
+[   0.752s] TX firmware len= 6  df df 00 02 00 c0  
+[   0.826s] RX[aa01] len=10  df df 00 02 04 56 32 33 30 af  
+           └ df df 00 02 04 56 32 33 30 af  (info cmd2 'V230')
+[   1.126s] TX temp unit len= 6  df df 01 00 00 bf  
+[   1.200s] RX[aa01] len= 7  df df 01 00 01 00 c0  
+           └ df df 01 00 01 00 c0  (temp unit(0=C,1=F)=0)
+[   1.500s] TX auto test len= 6  df df 01 01 00 c0  
+[   1.576s] RX[aa01] len= 7  df df 01 01 01 00 c1  
+           └ df df 01 01 01 00 c1  (auto test=0)
+[   1.876s] TX brightness len= 6  df df 01 02 00 c1  
+[   1.951s] RX[aa01] len= 7  df df 01 02 01 64 26  
+           └ df df 01 02 01 64 26  (brightness%=100)
+[   2.251s] TX number of tests len= 6  df df 01 03 00 c2  
+[   2.326s] RX[aa01] len= 7  df df 01 03 01 03 c6  
+           └ df df 01 03 01 03 c6  (number of tests=3)
+[   2.626s] TX calibration (영점 교정 — R2 기준이 바뀐다) len= 6  df df 03 02 00 c3  
+── 15s 청취 — 이 동안 R2 본체 버튼 측정·자동 측정을 해 보고 시각을 메모할 것 ──
+[   2.776s] RX[aa01] len= 9  df df 03 02 03 00 0c 00 d2  
+           └ df df 03 02 03 00 0c 00 d2  (calibration pkg0 status=12 Calibration start)
+[   5.925s] RX[aa01] len= 9  df df 03 02 03 00 01 00 c7  
+           └ df df 03 02 03 00 01 00 c7  (calibration pkg0 status=1 Calibration finished)
+[   5.926s] RX[aa01] len=12  df df 03 02 06 01 00 db 00 d7 00 7c  
+           └ df df 03 02 06 01 00 db 00 d7 00 7c  (calibration pkg1 prism=21.9 tank=21.5 tail=[0])
+[   5.963s] RX[aa01] len=13  df df 03 02 07 02 00 00 00 02 08 b3 89  
+           └ df df 03 02 07 02 00 00 00 02 08 b3 89  (calibration pkg2 TDS=0.00% RI=1.33299 ri_bytes=4)
+── 캡처 종료 ──
+!! 종료 중 예외 EOFError:  — 위에 「캡처 종료」가 있으면 캡처는 완료

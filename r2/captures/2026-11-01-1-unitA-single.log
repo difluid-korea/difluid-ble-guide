@@ -1,0 +1,55 @@
+# DiFluid R2 캡처 · capture — 2026-11-01 12:15 KST · 기기 · unit A
+# single test command (unit A, far away)
+# 가린 사본 · redacted copy: 주소 · addresses → <MAC-…>, 이름 번호 · name digits → NNNNNN-…, SN 바이트 · serial bytes → xx
+# 시각은 첫 송신 기준(초) · times are seconds from the first write. TX = 보낸 것 · sent, RX = 받은 것 · received, └ = 캡처 도구의 해석 · capture tool's decode
+
+스캔 중(10 s)… 이름 프리픽스 'DIFLUID R2'
+발견: 'DiFluid R2 NNNNNN-A' [<MAC-A>] rssi=-93 service_uuids=['000000ff-0000-1000-8000-00805f9b34fb']
+발견: 'DiFluid R2 NNNNNN-X' [<MAC-X>] rssi=-87 service_uuids=['000000ff-0000-1000-8000-00805f9b34fb']
+발견: 'DiFluid R2 NNNNNN-B' [<MAC-B>] rssi=-69 service_uuids=['000000ff-0000-1000-8000-00805f9b34fb']
+연결됨: <MAC-A>
+── GATT 맵 ──
+  service 00001800-0000-1000-8000-00805f9b34fb
+    char 00002a00-0000-1000-8000-00805f9b34fb  props=['read']
+    char 00002a01-0000-1000-8000-00805f9b34fb  props=['read']
+    char 00002aa6-0000-1000-8000-00805f9b34fb  props=['read']
+  service 000000ff-0000-1000-8000-00805f9b34fb
+    char 0000aa01-0000-1000-8000-00805f9b34fb  props=['read', 'write', 'notify']
+    char 0000ff01-0000-1000-8000-00805f9b34fb  props=['read', 'write', 'notify']
+  service 00001801-0000-1000-8000-00805f9b34fb
+    char 00002a05-0000-1000-8000-00805f9b34fb  props=['indicate']
+구독: 0000aa01-0000-1000-8000-00805f9b34fb
+구독: 0000ff01-0000-1000-8000-00805f9b34fb
+구독: 00002a05-0000-1000-8000-00805f9b34fb
+쓰기 특성: 0000aa01-0000-1000-8000-00805f9b34fb
+[   0.000s] TX SN len= 6  df df 00 00 00 be  
+[   0.081s] RX[aa01] len=12  df df 00 00 06 00 xx xx xx xx xx xx  
+           └ df df 00 00 06 00 xx xx xx xx xx xx  (SN 청크0 '*****')
+[   0.081s] RX[aa01] len=12  df df 00 00 06 01 xx xx xx xx xx xx  
+           └ df df 00 00 06 01 xx xx xx xx xx xx  (SN 청크1 '*****')
+[   0.082s] RX[aa01] len=12  df df 00 00 06 02 xx xx xx xx xx xx  
+           └ df df 00 00 06 02 xx xx xx xx xx xx  (SN 청크2 '*****')
+[   0.380s] TX model len= 6  df df 00 01 00 bf  
+[   1.161s] RX[aa01] len=14  df df 00 01 08 44 46 54 2d 52 31 30 32 b7  
+           └ df df 00 01 08 44 46 54 2d 52 31 30 32 b7  (info cmd1 'DFT-R102')
+[   1.260s] TX firmware len= 6  df df 00 02 00 c0  
+[   1.480s] RX[aa01] len=10  df df 00 02 04 56 32 33 30 af  
+           └ df df 00 02 04 56 32 33 30 af  (info cmd2 'V230')
+[   1.781s] TX temp unit len= 6  df df 01 00 00 bf  
+[   2.080s] RX[aa01] len= 7  df df 01 00 01 00 c0  
+           └ df df 01 00 01 00 c0  (temp unit(0=C,1=F)=0)
+[   2.261s] TX auto test len= 6  df df 01 01 00 c0  
+[   2.441s] RX[aa01] len= 7  df df 01 01 01 00 c1  
+           └ df df 01 01 01 00 c1  (auto test=0)
+[   2.740s] TX brightness len= 6  df df 01 02 00 c1  
+[   2.960s] RX[aa01] len= 7  df df 01 02 01 64 26  
+           └ df df 01 02 01 64 26  (brightness%=100)
+[   3.180s] TX number of tests len= 6  df df 01 03 00 c2  
+[   3.320s] RX[aa01] len= 7  df df 01 03 01 01 c4  
+           └ df df 01 03 01 01 c4  (number of tests=1)
+[   3.621s] TX single test len= 6  df df 03 00 00 c1  
+── 30s 청취 — 이 동안 R2 본체 버튼 측정·자동 측정을 해 보고 시각을 메모할 것 ──
+[   3.841s] RX[aa01] len=18  df df 03 00 03 00 0b 00 cf df df 03 fe 03 00 03 03 c8  
+           └ df df 03 00 03 00 0b 00 cf  (single pkg0 status=11 Test start)
+           └ df df 03 fe 03 00 03 03 c8  (ERROR class=0 code=3)   ← ⚠ 옛 해석기 오류: 실제는 분류 3·코드 3 · old decoder bug: actually class 3, code 3
+── 캡처 종료 ──

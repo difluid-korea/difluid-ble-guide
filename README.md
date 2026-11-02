@@ -1,0 +1,67 @@
+<p align="center"><img src="assets/banner.svg" alt="DiFluid Korea — BLE 개발자 가이드" width="100%"></p>
+
+<p align="center"><b>한국어</b> · <a href="README.en.md">English</a></p>
+
+<p align="center">
+  <a href="LICENSE-DOCS.md"><img alt="문서 CC BY 4.0" src="https://img.shields.io/badge/%EB%AC%B8%EC%84%9C-CC%20BY%204.0-4FBBAB"></a>
+  <a href="LICENSE"><img alt="코드 MIT" src="https://img.shields.io/badge/%EC%BD%94%EB%93%9C-MIT-4FBBAB"></a>
+  <a href="https://www.difluid.kr"><img alt="difluid.kr" src="https://img.shields.io/badge/%EA%B3%B5%EC%8B%9D%EB%AA%B0-difluid.kr-0D0F0F"></a>
+</p>
+
+# DiFluid BLE 개발자 가이드
+
+DiFluid 기기를 블루투스(BLE)로 내 앱·기기에 붙이는 방법을 **실제 기기로 확인해** 정리했습니다. 바이트 예시, 실측 타이밍, 본사 문서와 다른 점, 바로 돌려 볼 수 있는 Python 예제를 담았습니다.
+
+> [!NOTE]
+> DiFluid 한국 공식 대리점 **비다스테크(Vidastech)** 가 운영합니다. 프로토콜의 정본은 DiFluid 본사의 [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) 이며, 이 가이드는 그것을 실제 기기로 확인하고 보완합니다.
+
+## 기기
+
+| 기기 | 무엇을 재나 | 가이드 | 예제 | 제품 |
+|---|---|---|---|---|
+| **R2 Extract** | 굴절계 — 커피 TDS·굴절률 | [시작하기](r2/README.md) · [프로토콜](r2/protocol.md) | [r2_minimal.py](examples/python/r2_minimal.py) | [difluid.kr](https://www.difluid.kr/R2Extract) |
+| **Microbalance · Ti** | 저울 — 무게·유량·타이머 | [시작하기](microbalance/README.md) · [프로토콜](microbalance/protocol.md) | [microbalance_minimal.py](examples/python/microbalance_minimal.py) | [difluid.kr](https://www.difluid.kr/Microbalance) |
+
+두 기기는 같은 DiFluid 프레임 형식(`DF DF func cmd len data sum`)을 쓰지만, 명령과 응답은 기기마다 다릅니다.
+
+## 세 줄로 시작하기
+
+```bash
+pip install bleak                                   # Python 3.9 이상
+python examples/python/r2_minimal.py scan           # 주변 R2 찾기
+python examples/python/r2_minimal.py listen --address <주소> --single
+```
+
+> [!TIP]
+> R2 는 연결돼 있는 동안 광고하지 않습니다. 휴대폰 앱(DiFluid Café)과의 연결을 먼저 끊으세요.
+
+## 이 가이드가 다른 점
+
+- **모든 사실에 확인 표시** — ✅ 실측 확인 · 📄 벤더 문서에만 있음 · ❓ 미확인. 확인하지 않은 것을 사실처럼 쓰지 않습니다.
+- **원시 캡처 공개(R2)** — R2 판단의 근거가 된 바이트 로그를 그대로 공개합니다. 기기 식별 정보만 가렸습니다. 저울(Microbalance·Ti)은 원시 로그를 남기지 않아, 시험 코드에 고정한 실측 프레임만 싣습니다.
+- **문서와 다른 점** — 본사 문서의 오타와 어긋남을 실물 바이트와 프레임 규칙으로 바로잡았습니다(실물로 확인한 항목에는 ✅).
+- **제품에 붙여 본 경험** — 실제 제품에 통합하며 만난 함정과 그 뒤 정한 규칙을 함께 적었습니다.
+
+## 피드백
+
+이 가이드로 개발하셨다면 알려 주세요. 링크를 누르면 제목과 양식이 채워진 메일이 열립니다.
+
+| 무엇을 | 메일 | 함께 주시면 좋은 것 |
+|---|---|---|
+| 사용 사례 공유 | [[사용 사례] 메일 쓰기](mailto:difluid.kr@gmail.com?subject=%5B%EC%82%AC%EC%9A%A9%20%EC%82%AC%EB%A1%80%5D%20&body=%EB%A7%8C%EB%93%A0%20%EA%B2%83%3A%0A%EC%93%B4%20%EA%B8%B0%EA%B8%B0%C2%B7%ED%8E%8C%EC%9B%A8%EC%96%B4%3A%0A%EA%B0%80%EC%9D%B4%EB%93%9C%EC%97%90%20%EC%86%8C%EA%B0%9C%ED%95%B4%EB%8F%84%20%EB%90%98%EB%82%98%EC%9A%94%28%EC%98%88/%EC%95%84%EB%8B%88%EC%98%A4%29%3A%0A%EB%A7%81%ED%81%AC%3A%0A) | 만든 것, 쓴 기기·펌웨어, 가이드에 소개해도 되는지 |
+| 오류·버그 신고 | [[버그] 메일 쓰기](mailto:difluid.kr@gmail.com?subject=%5B%EB%B2%84%EA%B7%B8%5D%20&body=%EB%AC%B8%EC%84%9C%C2%B7%EC%BD%94%EB%93%9C%20%EC%9C%84%EC%B9%98%28%EB%A7%81%ED%81%AC%29%3A%0A%EA%B8%B0%EA%B8%B0%20%EB%AA%A8%EB%8D%B8%C2%B7%ED%8E%8C%EC%9B%A8%EC%96%B4%3A%0A%EC%A6%9D%EC%83%81%3A%0A%EA%B8%B0%EB%8C%80%ED%95%9C%20%EB%8F%99%EC%9E%91%3A%0A%EC%9B%90%EC%8B%9C%20%EB%B0%94%EC%9D%B4%ED%8A%B8%20%EB%A1%9C%EA%B7%B8%28%EC%9E%88%EC%9C%BC%EB%A9%B4%20%EC%B2%A8%EB%B6%80%29%3A%0A) | 문서·코드 위치, 기기 모델·펌웨어, 증상, 원시 바이트 로그 |
+| 기능 제안 | [[기능 제안] 메일 쓰기](mailto:difluid.kr@gmail.com?subject=%5B%EA%B8%B0%EB%8A%A5%20%EC%A0%9C%EC%95%88%5D%20&body=%ED%95%84%EC%9A%94%ED%95%9C%20%EA%B8%B0%EB%8A%A5%C2%B7%EA%B8%B0%EA%B8%B0%3A%0A%EC%93%B0%EB%A0%A4%EB%8A%94%20%EC%83%81%ED%99%A9%3A%0A) | 필요한 기능·기기, 쓰려는 상황 |
+| 자료 기여 | [difluid.kr@gmail.com](mailto:difluid.kr@gmail.com) | 프로토콜 정리·캡처·코드 — 검토해 작업자 이름과 함께 싣습니다 |
+
+[GitHub 이슈](https://github.com/difluid-korea/difluid-ble-guide/issues)로 보내셔도 됩니다. 사용 사례는 동의하신 경우에만 소개합니다.
+
+## 라이선스
+
+- 문서·캡처 로그: [CC BY 4.0](LICENSE-DOCS.md) — 출처를 밝히면 자유롭게 쓸 수 있습니다.
+- 예제 코드: [MIT](LICENSE)
+
+DiFluid 의 프로토콜 문서는 DiFluid 의 저작물입니다(MIT, © Shenzhen Digitizing Fluid Technology Co., Ltd.). 이 저장소는 그것을 옮겨 싣지 않고 링크하며, 바이트 값 같은 사실만 정리합니다. DiFluid, R2 Extract, Microbalance, DiFluid Café 는 해당 소유자의 상표입니다.
+
+---
+
+<p align="center"><b>DiFluid Korea</b> · <a href="https://www.difluid.kr">difluid.kr</a> · <a href="mailto:difluid.kr@gmail.com">difluid.kr@gmail.com</a></p>

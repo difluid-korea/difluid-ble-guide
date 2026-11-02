@@ -1,0 +1,116 @@
+# DiFluid R2 캡처 · capture — 2026-11-01 17:51:50 KST · 기기 · unit C
+# listen 150 s, two 3-round averages started with the device button (coffee)
+# 가린 사본 · redacted copy: 주소 · addresses → <MAC-…>, 이름 번호 · name digits → NNNNNN-…, SN 바이트 · serial bytes → xx
+# 시각은 첫 송신 기준(초) · times are seconds from the first write. TX = 보낸 것 · sent, RX = 받은 것 · received, └ = 캡처 도구의 해석 · capture tool's decode
+
+주소 지정 — 스캔으로 캐시 채우는 중: <MAC-C>
+연결됨: <MAC-C>
+── GATT 맵 ──
+  service 000000ff-0000-1000-8000-00805f9b34fb
+    char 0000ff01-0000-1000-8000-00805f9b34fb  props=['read', 'write', 'notify']
+    char 0000aa01-0000-1000-8000-00805f9b34fb  props=['read', 'write', 'notify']
+  service 00001801-0000-1000-8000-00805f9b34fb
+    char 00002a05-0000-1000-8000-00805f9b34fb  props=['indicate']
+  service 00001800-0000-1000-8000-00805f9b34fb
+    char 00002a00-0000-1000-8000-00805f9b34fb  props=['read']
+    char 00002aa6-0000-1000-8000-00805f9b34fb  props=['read']
+    char 00002a01-0000-1000-8000-00805f9b34fb  props=['read']
+구독: 0000ff01-0000-1000-8000-00805f9b34fb
+구독: 0000aa01-0000-1000-8000-00805f9b34fb
+구독: 00002a05-0000-1000-8000-00805f9b34fb
+쓰기 특성: 0000aa01-0000-1000-8000-00805f9b34fb
+[   0.000s] TX SN len= 6  df df 00 00 00 be  
+[   0.077s] RX[aa01] len=12  df df 00 00 06 00 xx xx xx xx xx xx  
+           └ df df 00 00 06 00 xx xx xx xx xx xx  (SN 청크0 '*****')
+[   0.078s] RX[aa01] len=12  df df 00 00 06 01 xx xx xx xx xx xx  
+           └ df df 00 00 06 01 xx xx xx xx xx xx  (SN 청크1 '*****')
+[   0.078s] RX[aa01] len=12  df df 00 00 06 02 xx xx xx xx xx xx  
+           └ df df 00 00 06 02 xx xx xx xx xx xx  (SN 청크2 '*****')
+[   0.376s] TX model len= 6  df df 00 01 00 bf  
+[   0.450s] RX[aa01] len=14  df df 00 01 08 44 46 54 2d 52 31 30 32 b7  
+           └ df df 00 01 08 44 46 54 2d 52 31 30 32 b7  (info cmd1 'DFT-R102')
+[   0.751s] TX firmware len= 6  df df 00 02 00 c0  
+[   0.825s] RX[aa01] len=10  df df 00 02 04 56 32 33 30 af  
+           └ df df 00 02 04 56 32 33 30 af  (info cmd2 'V230')
+[   1.124s] TX temp unit len= 6  df df 01 00 00 bf  
+[   1.200s] RX[aa01] len= 7  df df 01 00 01 00 c0  
+           └ df df 01 00 01 00 c0  (temp unit(0=C,1=F)=0)
+[   1.500s] TX auto test len= 6  df df 01 01 00 c0  
+[   1.575s] RX[aa01] len= 7  df df 01 01 01 00 c1  
+           └ df df 01 01 01 00 c1  (auto test=0)
+[   1.875s] TX brightness len= 6  df df 01 02 00 c1  
+[   1.950s] RX[aa01] len= 7  df df 01 02 01 64 26  
+           └ df df 01 02 01 64 26  (brightness%=100)
+[   2.250s] TX number of tests len= 6  df df 01 03 00 c2  
+[   2.325s] RX[aa01] len= 7  df df 01 03 01 03 c6  
+           └ df df 01 03 01 03 c6  (number of tests=3)
+── 150s 청취 — 이 동안 R2 본체 버튼 측정·자동 측정을 해 보고 시각을 메모할 것 ──
+[  59.739s] RX[aa01] len= 9  df df 03 01 03 00 04 00 c9  
+           └ df df 03 01 03 00 04 00 c9  (average pkg0 status=4 Average test start)
+[  63.376s] RX[aa01] len= 9  df df 03 01 03 00 05 00 ca  
+           └ df df 03 01 03 00 05 00 ca  (average pkg0 status=5 Average test ongoing)
+[  63.376s] RX[aa01] len=12  df df 03 01 06 01 00 af 00 a9 00 21  
+           └ df df 03 01 06 01 00 af 00 a9 00 21  (average pkg1 prism=17.5 tank=16.9 tail=[0])
+[  63.413s] RX[aa01] len=13  df df 03 01 07 02 03 2e 00 02 0e 59 65  
+           └ df df 03 01 07 02 03 2e 00 02 0e 59 65  (average pkg2 TDS=8.14% RI=1.34745 ri_bytes=4)
+[  63.451s] RX[aa01] len=13  df df 03 01 07 03 03 2e 00 0c 6c 14 89  
+           └ df df 03 01 07 03 03 2e 00 0c 6c 14 89  (average pkg3 TDS=8.14% RI=8.141 ri_bytes=4)   ← ⚠ 4 B 칸은 굴절률이 아님 · the 4-byte field is not an RI
+[  63.451s] RX[aa01] len=13  df df 03 01 07 04 00 af 00 a9 01 03 29  
+           └ df df 03 01 07 04 00 af 00 a9 01 03 29  (average pkg4 prism=17.5 tank=16.9 tail=[1 3])
+[  69.451s] RX[aa01] len= 9  df df 03 01 03 00 05 00 ca  
+           └ df df 03 01 03 00 05 00 ca  (average pkg0 status=5 Average test ongoing)
+[  69.452s] RX[aa01] len=12  df df 03 01 06 01 00 af 00 a9 00 21  
+           └ df df 03 01 06 01 00 af 00 a9 00 21  (average pkg1 prism=17.5 tank=16.9 tail=[0])
+[  69.489s] RX[aa01] len=13  df df 03 01 07 02 03 2f 00 02 0e 5c 69  
+           └ df df 03 01 07 02 03 2f 00 02 0e 5c 69  (average pkg2 TDS=8.15% RI=1.34748 ri_bytes=4)
+[  69.490s] RX[aa01] len=13  df df 03 01 07 03 03 2f 00 0c 6f fc 75  
+           └ df df 03 01 07 03 03 2f 00 0c 6f fc 75  (average pkg3 TDS=8.15% RI=8.151 ri_bytes=4)   ← ⚠ 4 B 칸은 굴절률이 아님 · the 4-byte field is not an RI
+[  69.526s] RX[aa01] len=13  df df 03 01 07 04 00 af 00 a9 02 03 2a  
+           └ df df 03 01 07 04 00 af 00 a9 02 03 2a  (average pkg4 prism=17.5 tank=16.9 tail=[2 3])
+[  72.864s] RX[aa01] len= 9  df df 03 01 03 00 05 00 ca  
+           └ df df 03 01 03 00 05 00 ca  (average pkg0 status=5 Average test ongoing)
+[  72.865s] RX[aa01] len=12  df df 03 01 06 01 00 af 00 a9 00 21  
+           └ df df 03 01 06 01 00 af 00 a9 00 21  (average pkg1 prism=17.5 tank=16.9 tail=[0])
+[  72.866s] RX[aa01] len=13  df df 03 01 07 02 03 2f 00 02 0e 5b 68  
+           └ df df 03 01 07 02 03 2f 00 02 0e 5b 68  (average pkg2 TDS=8.15% RI=1.34747 ri_bytes=4)
+[  72.939s] RX[aa01] len=13  df df 03 01 07 03 03 2f 00 0c 6f fc 75  
+           └ df df 03 01 07 03 03 2f 00 0c 6f fc 75  (average pkg3 TDS=8.15% RI=8.151 ri_bytes=4)   ← ⚠ 4 B 칸은 굴절률이 아님 · the 4-byte field is not an RI
+[  72.977s] RX[aa01] len=13  df df 03 01 07 04 00 af 00 a9 03 03 2b  
+           └ df df 03 01 07 04 00 af 00 a9 03 03 2b  (average pkg4 prism=17.5 tank=16.9 tail=[3 3])
+[  75.076s] RX[aa01] len= 9  df df 03 01 03 00 06 00 cb  
+           └ df df 03 01 03 00 06 00 cb  (average pkg0 status=6 Average test finished)
+[  96.939s] RX[aa01] len= 9  df df 03 01 03 00 04 00 c9  
+           └ df df 03 01 03 00 04 00 c9  (average pkg0 status=4 Average test start)
+[ 100.090s] RX[aa01] len= 9  df df 03 01 03 00 05 00 ca  
+           └ df df 03 01 03 00 05 00 ca  (average pkg0 status=5 Average test ongoing)
+[ 100.091s] RX[aa01] len=12  df df 03 01 06 01 00 ae 00 a8 00 1f  
+           └ df df 03 01 06 01 00 ae 00 a8 00 1f  (average pkg1 prism=17.4 tank=16.8 tail=[0])
+[ 100.127s] RX[aa01] len=13  df df 03 01 07 02 03 2e 00 02 0e 59 65  
+           └ df df 03 01 07 02 03 2e 00 02 0e 59 65  (average pkg2 TDS=8.14% RI=1.34745 ri_bytes=4)
+[ 100.164s] RX[aa01] len=13  df df 03 01 07 03 03 2e 00 0c 6c 14 89  
+           └ df df 03 01 07 03 03 2e 00 0c 6c 14 89  (average pkg3 TDS=8.14% RI=8.141 ri_bytes=4)   ← ⚠ 4 B 칸은 굴절률이 아님 · the 4-byte field is not an RI
+[ 100.165s] RX[aa01] len=13  df df 03 01 07 04 00 ae 00 a8 01 03 27  
+           └ df df 03 01 07 04 00 ae 00 a8 01 03 27  (average pkg4 prism=17.4 tank=16.8 tail=[1 3])
+[ 103.539s] RX[aa01] len= 9  df df 03 01 03 00 05 00 ca  
+           └ df df 03 01 03 00 05 00 ca  (average pkg0 status=5 Average test ongoing)
+[ 103.539s] RX[aa01] len=12  df df 03 01 06 01 00 ae 00 a8 00 1f  
+           └ df df 03 01 06 01 00 ae 00 a8 00 1f  (average pkg1 prism=17.4 tank=16.8 tail=[0])
+[ 103.614s] RX[aa01] len=13  df df 03 01 07 02 03 2e 00 02 0e 59 65  
+           └ df df 03 01 07 02 03 2e 00 02 0e 59 65  (average pkg2 TDS=8.14% RI=1.34745 ri_bytes=4)
+[ 103.615s] RX[aa01] len=13  df df 03 01 07 03 03 2e 00 0c 6c 14 89  
+           └ df df 03 01 07 03 03 2e 00 0c 6c 14 89  (average pkg3 TDS=8.14% RI=8.141 ri_bytes=4)   ← ⚠ 4 B 칸은 굴절률이 아님 · the 4-byte field is not an RI
+[ 103.615s] RX[aa01] len=13  df df 03 01 07 04 00 ae 00 a8 02 03 28  
+           └ df df 03 01 07 04 00 ae 00 a8 02 03 28  (average pkg4 prism=17.4 tank=16.8 tail=[2 3])
+[ 106.952s] RX[aa01] len= 9  df df 03 01 03 00 05 00 ca  
+           └ df df 03 01 03 00 05 00 ca  (average pkg0 status=5 Average test ongoing)
+[ 106.953s] RX[aa01] len=12  df df 03 01 06 01 00 ae 00 a8 00 1f  
+           └ df df 03 01 06 01 00 ae 00 a8 00 1f  (average pkg1 prism=17.4 tank=16.8 tail=[0])
+[ 107.027s] RX[aa01] len=13  df df 03 01 07 02 03 2d 00 02 0e 58 63  
+           └ df df 03 01 07 02 03 2d 00 02 0e 58 63  (average pkg2 TDS=8.13% RI=1.34744 ri_bytes=4)
+[ 107.028s] RX[aa01] len=13  df df 03 01 07 03 03 2e 00 0c 6c 14 89  
+           └ df df 03 01 07 03 03 2e 00 0c 6c 14 89  (average pkg3 TDS=8.14% RI=8.141 ri_bytes=4)   ← ⚠ 4 B 칸은 굴절률이 아님 · the 4-byte field is not an RI
+[ 107.064s] RX[aa01] len=13  df df 03 01 07 04 00 ae 00 a8 03 03 29  
+           └ df df 03 01 07 04 00 ae 00 a8 03 03 29  (average pkg4 prism=17.4 tank=16.8 tail=[3 3])
+[ 109.127s] RX[aa01] len= 9  df df 03 01 03 00 06 00 cb  
+           └ df df 03 01 03 00 06 00 cb  (average pkg0 status=6 Average test finished)
+── 캡처 종료 ──

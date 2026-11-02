@@ -1,0 +1,74 @@
+# DiFluid R2 캡처 · capture — 2026-11-01 17:25:37 KST · 기기 · unit B
+# listen 120 s, tests started with the device button (water, empty prism)
+# 가린 사본 · redacted copy: 주소 · addresses → <MAC-…>, 이름 번호 · name digits → NNNNNN-…, SN 바이트 · serial bytes → xx
+# 시각은 첫 송신 기준(초) · times are seconds from the first write. TX = 보낸 것 · sent, RX = 받은 것 · received, └ = 캡처 도구의 해석 · capture tool's decode
+
+스캔 중(10 s)… 이름 프리픽스 'DIFLUID R2'
+발견: 'DiFluid R2 NNNNNN-B' [<MAC-B>] rssi=-64 service_uuids=['000000ff-0000-1000-8000-00805f9b34fb']
+연결됨: <MAC-B>
+── GATT 맵 ──
+  service 00001800-0000-1000-8000-00805f9b34fb
+    char 00002a00-0000-1000-8000-00805f9b34fb  props=['read']
+    char 00002aa6-0000-1000-8000-00805f9b34fb  props=['read']
+    char 00002a01-0000-1000-8000-00805f9b34fb  props=['read']
+  service 00001801-0000-1000-8000-00805f9b34fb
+    char 00002a05-0000-1000-8000-00805f9b34fb  props=['indicate']
+  service 000000ff-0000-1000-8000-00805f9b34fb
+    char 0000ff01-0000-1000-8000-00805f9b34fb  props=['read', 'write', 'notify']
+    char 0000aa01-0000-1000-8000-00805f9b34fb  props=['read', 'write', 'notify']
+구독: 00002a05-0000-1000-8000-00805f9b34fb
+구독: 0000ff01-0000-1000-8000-00805f9b34fb
+구독: 0000aa01-0000-1000-8000-00805f9b34fb
+쓰기 특성: 0000aa01-0000-1000-8000-00805f9b34fb
+[   0.000s] TX SN len= 6  df df 00 00 00 be  
+[   0.081s] RX[aa01] len=24  df df 00 00 06 00 xx xx xx xx xx xx df df 00 00 06 01 xx xx xx xx xx xx  
+           └ df df 00 00 06 00 xx xx xx xx xx xx  (SN 청크0 '*****')
+           └ df df 00 00 06 01 xx xx xx xx xx xx  (SN 청크1 '*****')
+[   0.083s] RX[aa01] len=12  df df 00 00 06 02 xx xx xx xx xx xx  
+           └ df df 00 00 06 02 xx xx xx xx xx xx  (SN 청크2 '*****')
+[   0.381s] TX model len= 6  df df 00 01 00 bf  
+[   0.520s] RX[aa01] len=14  df df 00 01 08 44 46 54 2d 52 31 30 32 b7  
+           └ df df 00 01 08 44 46 54 2d 52 31 30 32 b7  (info cmd1 'DFT-R102')
+[   0.739s] TX firmware len= 6  df df 00 02 00 c0  
+[   0.840s] RX[aa01] len=10  df df 00 02 04 56 32 33 30 af  
+           └ df df 00 02 04 56 32 33 30 af  (info cmd2 'V230')
+[   1.100s] TX temp unit len= 6  df df 01 00 00 bf  
+[   1.160s] RX[aa01] len= 7  df df 01 00 01 00 c0  
+           └ df df 01 00 01 00 c0  (temp unit(0=C,1=F)=0)
+[   1.280s] RX[aa01] len= 9  df df 03 00 03 00 00 00 c4  
+           └ df df 03 00 03 00 00 00 c4  (single pkg0 status=0 Test finished)
+[   1.281s] RX[aa01] len=12  df df 03 00 06 01 00 d1 00 d2 00 6b  
+           └ df df 03 00 06 01 00 d1 00 d2 00 6b  (single pkg1 prism=20.9 tank=21.0 tail=[0])
+[   1.283s] RX[aa01] len=13  df df 03 00 07 02 ff 91 00 02 07 ef 52  
+           └ df df 03 00 07 02 ff 91 00 02 07 ef 52  (single pkg2 TDS=-1.11% RI=1.33103 ri_bytes=4)
+[   1.460s] TX auto test len= 6  df df 01 01 00 c0  
+[   1.521s] RX[aa01] len= 7  df df 01 01 01 00 c1  
+           └ df df 01 01 01 00 c1  (auto test=0)
+[   1.821s] TX brightness len= 6  df df 01 02 00 c1  
+[   1.880s] RX[aa01] len= 7  df df 01 02 01 64 26  
+           └ df df 01 02 01 64 26  (brightness%=100)
+[   2.181s] TX number of tests len= 6  df df 01 03 00 c2  
+[   2.240s] RX[aa01] len= 7  df df 01 03 01 01 c4  
+           └ df df 01 03 01 01 c4  (number of tests=1)
+── 120s 청취 — 이 동안 R2 본체 버튼 측정·자동 측정을 해 보고 시각을 메모할 것 ──
+[   6.239s] RX[aa01] len= 9  df df 03 00 03 00 0b 00 cf  
+           └ df df 03 00 03 00 0b 00 cf  (single pkg0 status=11 Test start)
+[   8.879s] RX[aa01] len= 9  df df 03 00 03 00 00 00 c4  
+           └ df df 03 00 03 00 00 00 c4  (single pkg0 status=0 Test finished)
+[   8.880s] RX[aa01] len=12  df df 03 00 06 01 00 d1 00 d1 00 6a  
+           └ df df 03 00 06 01 00 d1 00 d1 00 6a  (single pkg1 prism=20.9 tank=20.9 tail=[0])
+[   8.882s] RX[aa01] len=13  df df 03 00 07 02 ff 90 00 02 07 ef 51  
+           └ df df 03 00 07 02 ff 90 00 02 07 ef 51  (single pkg2 TDS=-1.12% RI=1.33103 ri_bytes=4)
+[  31.321s] RX[aa01] len= 9  df df 03 00 03 00 0b 00 cf  
+           └ df df 03 00 03 00 0b 00 cf  (single pkg0 status=11 Test start)
+[  34.200s] RX[aa01] len= 9  df df 03 fe 03 00 02 03 c7  
+           └ df df 03 fe 03 00 02 03 c7  (ERROR pkg0 general: No liquid)
+[  72.761s] RX[aa01] len= 9  df df 03 00 03 00 0b 00 cf  
+           └ df df 03 00 03 00 0b 00 cf  (single pkg0 status=11 Test start)
+[  75.361s] RX[aa01] len= 9  df df 03 00 03 00 00 00 c4  
+           └ df df 03 00 03 00 00 00 c4  (single pkg0 status=0 Test finished)
+[  75.362s] RX[aa01] len=12  df df 03 00 06 01 00 d6 00 d5 00 73  
+           └ df df 03 00 06 01 00 d6 00 d5 00 73  (single pkg1 prism=21.4 tank=21.3 tail=[0])
+[  75.363s] RX[aa01] len=13  df df 03 00 07 02 ff 8e 00 02 07 ea 4a  
+           └ df df 03 00 07 02 ff 8e 00 02 07 ea 4a  (single pkg2 TDS=-1.14% RI=1.33098 ri_bytes=4)
+── 캡처 종료 ──
