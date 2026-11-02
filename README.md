@@ -14,7 +14,7 @@
 DiFluid 기기를 블루투스(BLE)로 내 앱·기기에 붙이는 방법을 **실제 기기로 확인해** 정리했습니다. 바이트 예시, 실측 타이밍, 본사 문서와 다른 점, 바로 돌려 볼 수 있는 Python 예제를 담았습니다.
 
 > [!NOTE]
-> DiFluid 한국 공식 대리점 **비다스테크(Vidastech)** 가 운영합니다. 프로토콜의 정본은 DiFluid 본사의 [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) 이며, 이 가이드는 그것을 실제 기기로 확인하고 보완합니다. 본사 문서 목록은 [본사 공식 자료](#본사-공식-자료)에 있습니다.
+> DiFluid 한국 공식 수입사이자 DiFluid Korea 공식 운영사인 **비다스테크(Vidastech)** 가 관리합니다. 프로토콜의 정본은 DiFluid 본사의 [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) 이며, 이 가이드는 그것을 실제 기기로 확인하고 보완합니다. 본사 문서 목록은 [본사 공식 자료](#본사-공식-자료)에 있습니다.
 
 ## 기기
 
@@ -62,6 +62,7 @@ DiFluid 본사가 GitHub([DiFluid](https://github.com/DiFluid))에 공개한 자
 
 | 날짜 | 내용 |
 |---|---|
+| 2026-11-02 | 운영 주체 표기 정정 — 비다스테크: DiFluid 한국 공식 수입사, DiFluid Korea 공식 운영사 |
 | 2026-11-02 | 첫 화면에 [본사 공식 자료](#본사-공식-자료) 표 추가 — 대조한 본사 커밋(`df4e073`)에 고정한 링크와 최신판 링크 |
 | 2026-11-02 | **Omix Plus** 수신 가이드·예제 추가([omixplus/](omixplus/README.md)). 소스 제공: [180커피로스터스](https://180coffee.com) 이승진 로스터 |
 | 2026-11-02 | 첫 공개 — **R2 Extract**, **Microbalance · Ti** 가이드와 Python 예제(한/영) |

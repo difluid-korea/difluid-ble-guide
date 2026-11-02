@@ -14,7 +14,7 @@
 How to connect DiFluid devices to your own app or hardware over Bluetooth LE — **checked on real devices**. Byte-level examples, measured timings, where the vendor docs differ, and a Python example you can run today.
 
 > [!NOTE]
-> Maintained by **Vidastech**, the official DiFluid distributor in Korea. DiFluid's own [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) is the authoritative protocol; this guide checks and supplements it on real devices. DiFluid's documents are listed under [DiFluid's official material](#difluids-official-material).
+> Maintained by **Vidastech**, the official DiFluid importer for Korea and official operator of DiFluid Korea. DiFluid's own [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) is the authoritative protocol; this guide checks and supplements it on real devices. DiFluid's documents are listed under [DiFluid's official material](#difluids-official-material).
 
 ## Devices
 
@@ -62,6 +62,7 @@ Also: [General Coffee Concept](https://github.com/DiFluid/General-Coffee-Concept
 
 | Date | Change |
 |---|---|
+| 2026-11-02 | Corrected how the maintainer is described — Vidastech: official DiFluid importer for Korea, official operator of DiFluid Korea |
 | 2026-11-02 | Added [DiFluid's official material](#difluids-official-material) to the front page — links pinned to the DiFluid commit we checked against (`df4e073`), plus latest |
 | 2026-11-02 | Added the **Omix Plus** receive guide and example ([omixplus/](omixplus/README.en.md)). Source contributed by roaster 이승진 of [180 Coffee Roasters](https://180coffee.com) |
 | 2026-11-02 | First release — **R2 Extract** and **Microbalance · Ti** guides with Python examples (Korean / English) |
