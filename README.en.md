@@ -21,8 +21,9 @@ How to connect DiFluid devices to your own app or hardware over Bluetooth LE —
 |---|---|---|---|---|
 | **R2 Extract** | Refractometer — coffee TDS and refractive index | [Get started](r2/README.en.md) · [Protocol](r2/protocol.md) | [r2_minimal.py](examples/python/r2_minimal.py) | [difluid.kr](https://www.difluid.kr/R2Extract) |
 | **Microbalance · Ti** | Scale — weight, flow, timer | [Get started](microbalance/README.en.md) · [Protocol](microbalance/protocol.md) | [microbalance_minimal.py](examples/python/microbalance_minimal.py) | [difluid.kr](https://www.difluid.kr/Microbalance) |
+| **Omix Plus** | Bean analyzer — receive roast color, moisture, density (receive only, contributed material) | [Get started](omixplus/README.en.md) · [Protocol](omixplus/protocol.md) | [omixplus_minimal.py](examples/python/omixplus_minimal.py) | [difluid.kr](https://www.difluid.kr/OmixPlus) |
 
-Both use DiFluid's frame format (`DF DF func cmd len data sum`), but commands and responses differ per device.
+All three use DiFluid's frame format (`DF DF func cmd len data sum`), but commands and responses differ per device, and so does the byte order (the R2 and scales are big-endian, the Omix Plus is little-endian).
 
 ## Three commands to a first reading
 
@@ -38,7 +39,7 @@ python examples/python/r2_minimal.py listen --address <ADDRESS> --single
 ## What makes this guide different
 
 - **A status on every fact** — ✅ measured · 📄 vendor document only · ❓ unknown. Nothing unverified is stated as fact.
-- **Raw captures (R2)** — the byte logs behind each R2 conclusion, with only unit identifiers redacted. We kept no raw logs for the scales (Microbalance, Ti); only the measured frames pinned in our tests are published.
+- **Raw captures (R2, Omix Plus)** — the byte logs behind each conclusion, with only unit identifiers redacted. We kept no raw logs for the scales (Microbalance, Ti); only the measured frames pinned in our tests are published. The Omix Plus captures and device checks are the contributor's.
 - **Where the docs differ** — typos and mismatches in the vendor docs, corrected against real bytes or the frame rules (items checked on a device are marked ✅).
 - **Product experience** — pitfalls we hit integrating into a real product, and the rules we adopted.
 
@@ -55,12 +56,16 @@ If you built something with this guide, tell us. Each link opens an email with t
 
 [GitHub issues](https://github.com/difluid-korea/difluid-ble-guide/issues) work too. Use cases are featured only with your consent.
 
+## Contributors
+
+- Omix Plus integration material: 이승진(180커피로스터스)
+
 ## License
 
 - Documentation and capture logs: [CC BY 4.0](LICENSE-DOCS.md) — free to use with attribution.
 - Example code: [MIT](LICENSE)
 
-DiFluid's protocol documents are DiFluid's own work (MIT, © Shenzhen Digitizing Fluid Technology Co., Ltd.). This repository links to them rather than copying them, and restates only facts such as byte values. DiFluid, R2 Extract, Microbalance and DiFluid Café are trademarks of their respective owner.
+DiFluid's protocol documents are DiFluid's own work (MIT, © Shenzhen Digitizing Fluid Technology Co., Ltd.). This repository links to them rather than copying them, and restates only facts such as byte values. DiFluid, R2 Extract, Microbalance, Omix and DiFluid Café are trademarks of their respective owner.
 
 ---
 

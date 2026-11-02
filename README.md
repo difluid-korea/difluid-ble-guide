@@ -21,8 +21,9 @@ DiFluid 기기를 블루투스(BLE)로 내 앱·기기에 붙이는 방법을 **
 |---|---|---|---|---|
 | **R2 Extract** | 굴절계 — 커피 TDS·굴절률 | [시작하기](r2/README.md) · [프로토콜](r2/protocol.md) | [r2_minimal.py](examples/python/r2_minimal.py) | [difluid.kr](https://www.difluid.kr/R2Extract) |
 | **Microbalance · Ti** | 저울 — 무게·유량·타이머 | [시작하기](microbalance/README.md) · [프로토콜](microbalance/protocol.md) | [microbalance_minimal.py](examples/python/microbalance_minimal.py) | [difluid.kr](https://www.difluid.kr/Microbalance) |
+| **Omix Plus** | 원두 분석기 — 색도·수분·밀도 수신(받기 전용, 기여 자료) | [시작하기](omixplus/README.md) · [프로토콜](omixplus/protocol.md) | [omixplus_minimal.py](examples/python/omixplus_minimal.py) | [difluid.kr](https://www.difluid.kr/OmixPlus) |
 
-두 기기는 같은 DiFluid 프레임 형식(`DF DF func cmd len data sum`)을 쓰지만, 명령과 응답은 기기마다 다릅니다.
+세 기기는 같은 DiFluid 프레임 형식(`DF DF func cmd len data sum`)을 쓰지만, 명령과 응답은 기기마다 다릅니다. 바이트 순서도 다릅니다(R2·저울은 빅 엔디언, Omix Plus 는 리틀 엔디언).
 
 ## 세 줄로 시작하기
 
@@ -38,7 +39,7 @@ python examples/python/r2_minimal.py listen --address <주소> --single
 ## 이 가이드가 다른 점
 
 - **모든 사실에 확인 표시** — ✅ 실측 확인 · 📄 벤더 문서에만 있음 · ❓ 미확인. 확인하지 않은 것을 사실처럼 쓰지 않습니다.
-- **원시 캡처 공개(R2)** — R2 판단의 근거가 된 바이트 로그를 그대로 공개합니다. 기기 식별 정보만 가렸습니다. 저울(Microbalance·Ti)은 원시 로그를 남기지 않아, 시험 코드에 고정한 실측 프레임만 싣습니다.
+- **원시 캡처 공개(R2 · Omix Plus)** — 판단의 근거가 된 바이트 로그를 그대로 공개합니다. 기기 식별 정보만 가렸습니다. 저울(Microbalance·Ti)은 원시 로그를 남기지 않아, 시험 코드에 고정한 실측 프레임만 싣습니다. Omix Plus 의 캡처와 실기 확인은 기여자의 것입니다.
 - **문서와 다른 점** — 본사 문서의 오타와 어긋남을 실물 바이트와 프레임 규칙으로 바로잡았습니다(실물로 확인한 항목에는 ✅).
 - **제품에 붙여 본 경험** — 실제 제품에 통합하며 만난 함정과 그 뒤 정한 규칙을 함께 적었습니다.
 
@@ -55,12 +56,16 @@ python examples/python/r2_minimal.py listen --address <주소> --single
 
 [GitHub 이슈](https://github.com/difluid-korea/difluid-ble-guide/issues)로 보내셔도 됩니다. 사용 사례는 동의하신 경우에만 소개합니다.
 
+## 기여자
+
+- Omix Plus 연동 자료 제공: 이승진(180커피로스터스)
+
 ## 라이선스
 
 - 문서·캡처 로그: [CC BY 4.0](LICENSE-DOCS.md) — 출처를 밝히면 자유롭게 쓸 수 있습니다.
 - 예제 코드: [MIT](LICENSE)
 
-DiFluid 의 프로토콜 문서는 DiFluid 의 저작물입니다(MIT, © Shenzhen Digitizing Fluid Technology Co., Ltd.). 이 저장소는 그것을 옮겨 싣지 않고 링크하며, 바이트 값 같은 사실만 정리합니다. DiFluid, R2 Extract, Microbalance, DiFluid Café 는 해당 소유자의 상표입니다.
+DiFluid 의 프로토콜 문서는 DiFluid 의 저작물입니다(MIT, © Shenzhen Digitizing Fluid Technology Co., Ltd.). 이 저장소는 그것을 옮겨 싣지 않고 링크하며, 바이트 값 같은 사실만 정리합니다. DiFluid, R2 Extract, Microbalance, Omix, DiFluid Café 는 해당 소유자의 상표입니다.
 
 ---
 

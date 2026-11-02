@@ -1,0 +1,65 @@
+[
+  {
+    "at": "2026-10-20T23:22:33.926076+00:00",
+    "type": "inspection-service",
+    "uuid": "00001800-0000-1000-8000-00805f9b34fb",
+    "characteristics": [
+      {
+        "uuid": "00002a00-0000-1000-8000-00805f9b34fb",
+        "properties": [
+          "extended-properties",
+          "reliable-write",
+          "read"
+        ]
+      },
+      {
+        "uuid": "00002a01-0000-1000-8000-00805f9b34fb",
+        "properties": [
+          "read"
+        ]
+      }
+    ]
+  },
+  {
+    "at": "2026-10-20T23:22:33.926076+00:00",
+    "type": "inspection-service",
+    "uuid": "00001801-0000-1000-8000-00805f9b34fb",
+    "characteristics": [
+      {
+        "uuid": "00002a05-0000-1000-8000-00805f9b34fb",
+        "properties": [
+          "indicate",
+          "read"
+        ]
+      }
+    ]
+  },
+  {
+    "at": "2026-10-20T23:22:33.926076+00:00",
+    "type": "inspection-service",
+    "uuid": "000000e1-0000-1000-8000-00805f9b34fb",
+    "characteristics": [
+      {
+        "uuid": "0000ff01-0000-1000-8000-00805f9b34fb",
+        "properties": [
+          "notify",
+          "write"
+        ]
+      }
+    ]
+  },
+  {
+    "at": "2026-10-20T23:22:33.926076+00:00",
+    "type": "inspection-service",
+    "uuid": "000000e2-0000-1000-8000-00805f9b34fb",
+    "characteristics": [
+      {
+        "uuid": "0000ff02-0000-1000-8000-00805f9b34fb",
+        "properties": [
+          "notify",
+          "write"
+        ]
+      }
+    ]
+  }
+]

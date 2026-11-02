@@ -1,8 +1,8 @@
 # 문서 라이선스 · Documentation license
 
-이 저장소의 문서·이미지·캡처 로그 — 모든 `.md` 파일, `assets/`, `r2/captures/` — 는 [크리에이티브 커먼즈 저작자표시 4.0 국제 라이선스(CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.ko)를 따릅니다. 출처(「DiFluid Korea — BLE 개발자 가이드」와 이 저장소 주소)를 밝히면 자유롭게 복제·배포·수정할 수 있습니다.
+이 저장소의 문서·이미지·캡처 로그 — 모든 `.md` 파일, `assets/`, `r2/captures/`, `omixplus/captures/` — 는 [크리에이티브 커먼즈 저작자표시 4.0 국제 라이선스(CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.ko)를 따릅니다. 출처(「DiFluid Korea — BLE 개발자 가이드」와 이 저장소 주소)를 밝히면 자유롭게 복제·배포·수정할 수 있습니다.
 
-The documentation, images and capture logs in this repository — every `.md` file, `assets/` and `r2/captures/` — are licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You may copy, redistribute and adapt them as long as you give credit ("DiFluid Korea — BLE Developer Guide" and the repository URL).
+The documentation, images and capture logs in this repository — every `.md` file, `assets/`, `r2/captures/` and `omixplus/captures/` — are licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You may copy, redistribute and adapt them as long as you give credit ("DiFluid Korea — BLE Developer Guide" and the repository URL).
 
 © 2026 Vidastech Inc. (DiFluid Korea)
 

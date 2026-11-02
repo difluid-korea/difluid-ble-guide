@@ -9,6 +9,7 @@ One self-contained file per device, ready to run. The decoding part has no depen
 |---|---|---|---|
 | [`r2_minimal.py`](r2_minimal.py) | R2 Extract | 찾기, 정보·설정 읽기, 단일 측정(`--single`), 결과·평균 진행 출력 · scan, read info and settings, single test, print results and average progress | 설정 쓰기·평균·영점 교정 — R2 의 설정·기준이 바뀜 · setting writes, average, calibration — they change the R2's settings and reference |
 | [`microbalance_minimal.py`](microbalance_minimal.py) | Microbalance · Ti | 찾기(서비스 UUID — 없으면 이름. 저울 광고에 UUID 가 실리는지는 미확인), 저울 서비스가 없는 기기면 명령 전에 멈춤, SN·배터리 읽기, 무게 약 5 Hz, 영점(`--tare`) · scan by service UUID, falling back to the name (whether the scale advertises the UUID is unverified); stops before any command if the device has no scale service; read SN and battery, weight at ~5 Hz, tare | 타이머·설정 — 타이머 정지는 무게 송출을 멈춤 · timer, settings — timer stop freezes the weight output |
+| [`omixplus_minimal.py`](omixplus_minimal.py) | Omix Plus | 찾기(이름 `Omix`), 측정 서비스 `00E2` 확인, `FF02` 구독, 본체에서 잰 결과를 측정 식별자로 묶어 출력, 잘린 프레임 알림(MTU 23 에서 관찰) · scan by the `Omix` name, check for the `00E2` service, subscribe to `FF02`, group the results measured on the device by measurement ID, report cut frames (seen at MTU 23) | 아무것도 — 확인된 명령이 없음 · nothing; no command has been confirmed |
 
 ## 실행 · Run
 
@@ -20,11 +21,15 @@ python r2_minimal.py listen --address <ADDRESS> --seconds 60 --single
 
 python microbalance_minimal.py scan
 python microbalance_minimal.py listen --address <ADDRESS> --seconds 30 --tare
+
+python omixplus_minimal.py scan
+python omixplus_minimal.py listen --address <ADDRESS> --seconds 120
 ```
 
 - R2: 듣는 동안 본체 버튼으로 재도 결과가 나옵니다(평균이면 회차마다 `progress`). · Results from the R2's own button show up too (a `progress` event per average round).
 - R2 는 연결돼 있는 동안 광고하지 않아, 휴대폰 앱에 연결돼 있으면 찾지 못할 것입니다. 저울은 확인하지 못했습니다. 찾지 못하면 앱 연결부터 끊으세요. · The R2 does not advertise while connected, so one connected to the phone app presumably cannot be found; we have not checked the scale. If a device does not show up, disconnect it from the app first.
 - 예제 BLE 부분은 bleak 3.0 의 API 와 맞춰 확인했습니다. 시험은 실제 프레임으로 해석부를 확인합니다. · The BLE part was checked against the bleak 3.0 API; the tests check the decoder with real frames.
+- Omix Plus: DiFluid Korea 는 이 예제를 실기로 돌려 보지 않았다. 해석부 시험은 기여자(이승진, 180커피로스터스)의 캡처를 쓴다. 연결 뒤 본체에서 측정한다. · DiFluid Korea has not run this example on a device; the decoder tests use the captures of 이승진(180커피로스터스). Measure on the device after it connects.
 
 R2 출력 예 · R2 sample output (단일 측정 · single test, [캡처 로그 · capture log 5](../../r2/captures/README.md)):
 
@@ -40,11 +45,11 @@ R2 출력 예 · R2 sample output (단일 측정 · single test, [캡처 로그 
 ## 시험 · Tests
 
 ```bash
-python -m pytest test_r2_minimal.py test_microbalance_minimal.py
-# 또는 · or: python test_r2_minimal.py && python test_microbalance_minimal.py
+python -m pytest test_r2_minimal.py test_microbalance_minimal.py test_omixplus_minimal.py
+# 또는 · or: python test_r2_minimal.py && python test_microbalance_minimal.py && python test_omixplus_minimal.py
 ```
 
-[`test_r2_minimal.py`](test_r2_minimal.py) · [`test_microbalance_minimal.py`](test_microbalance_minimal.py) — 실제 기기에서 캡처한 프레임으로 해석부를 확인합니다(bleak 불필요). 시험용으로 만든 프레임에는 「synthetic」 표시를 달았습니다.<br>
+[`test_r2_minimal.py`](test_r2_minimal.py) · [`test_microbalance_minimal.py`](test_microbalance_minimal.py) · [`test_omixplus_minimal.py`](test_omixplus_minimal.py) — 실제 기기에서 캡처한 프레임으로 해석부를 확인합니다(bleak 불필요). 시험용으로 만든 프레임에는 「synthetic」 표시를 달았습니다.<br>
 They check the decoders against frames captured from real devices (no bleak needed). Frames made up for a test are marked "synthetic".
 
 ## 구조 · Structure
@@ -56,4 +61,6 @@ They check the decoders against frames captured from real devices (no bleak need
 | `decode()` | 프레임 하나 → dict · one frame → dict |
 | `ResultCollector` (R2) | 해석된 프레임 → 최종 결과(단일·평균·교정)와 평균 진행 · decoded frames → final results and average progress |
 | `join_serial()` (Microbalance) | SN 조각 3개 합치기 — SN 은 기기를 식별하므로 출력하지 않음 · join the 3 SN chunks; not printed, it identifies the device |
+| `parse_notification()` (Omix Plus) | notify 하나 → 해석된 프레임 목록. 잘린 프레임은 `truncated` 로 표시 · one notification → decoded frames; cut frames are marked `truncated` |
+| `MeasurementCollector` (Omix Plus) | 응답 3종을 측정 식별자로 묶어 결과 하나로 · group the three responses by measurement ID into one result |
 | `scan()` · `listen()` | bleak 로 찾기·연결 · discovery and connection with bleak |
