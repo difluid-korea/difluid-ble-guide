@@ -29,7 +29,7 @@ python omixplus_minimal.py listen --address <ADDRESS> --seconds 120
 - R2: 듣는 동안 본체 버튼으로 재도 결과가 나옵니다(평균이면 회차마다 `progress`). · Results from the R2's own button show up too (a `progress` event per average round).
 - R2 는 연결돼 있는 동안 광고하지 않아, 휴대폰 앱에 연결돼 있으면 찾지 못할 것입니다. 저울은 확인하지 못했습니다. 찾지 못하면 앱 연결부터 끊으세요. · The R2 does not advertise while connected, so one connected to the phone app presumably cannot be found; we have not checked the scale. If a device does not show up, disconnect it from the app first.
 - 예제 BLE 부분은 bleak 3.0 의 API 와 맞춰 확인했습니다. 시험은 실제 프레임으로 해석부를 확인합니다. · The BLE part was checked against the bleak 3.0 API; the tests check the decoder with real frames.
-- Omix Plus: DiFluid Korea 는 이 예제를 실기로 돌려 보지 않았다. 해석부 시험은 기여자(이승진, 180커피로스터스)의 캡처를 쓴다. 연결 뒤 본체에서 측정한다. · DiFluid Korea has not run this example on a device; the decoder tests use the captures of 이승진(180커피로스터스). Measure on the device after it connects.
+- Omix Plus: DiFluid Korea 는 이 예제를 실기로 돌려 보지 않았다. 해석부 시험은 기여자(이승진, 180커피로스터스)의 캡처를 쓴다. 연결 뒤 본체에서 측정한다. · DiFluid Korea has not run this example on a device; the decoder tests use the captures of 이승진 (180 Coffee Roasters). Measure on the device after it connects.
 
 R2 출력 예 · R2 sample output (단일 측정 · single test, [캡처 로그 · capture log 5](../../r2/captures/README.md)):
 

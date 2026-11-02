@@ -8,7 +8,7 @@ has been confirmed.
 (Omix Plus 의 명령은 확인된 것이 없다).
 
 Not run against an Omix Plus by DiFluid Korea. The decoder is tested with frames
-captured by 이승진(180커피로스터스).
+captured by 이승진 (180 Coffee Roasters).
 DiFluid Korea 는 이 예제를 Omix Plus 로 실행하지 않았다. 해석부는 이승진(180커피로스터스)의
 캡처로 시험했다.
 

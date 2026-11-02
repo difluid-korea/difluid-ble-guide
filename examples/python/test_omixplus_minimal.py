@@ -4,7 +4,7 @@
     python -m pytest test_omixplus_minimal.py      # or: python test_omixplus_minimal.py
 
 No bleak needed. Frames come from ../../omixplus/captures/ (file name in comments),
-captured by 이승진(180커피로스터스). Frames marked "synthetic" were made up for the test.
+captured by 이승진 (180 Coffee Roasters). Frames marked "synthetic" were made up for the test.
 캡처는 이승진(180커피로스터스) 제공. 「synthetic」은 시험용으로 만든 값이다.
 """
 import omixplus_minimal as om

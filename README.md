@@ -6,6 +6,7 @@
   <a href="LICENSE-DOCS.md"><img alt="문서 CC BY 4.0" src="https://img.shields.io/badge/%EB%AC%B8%EC%84%9C-CC%20BY%204.0-4FBBAB"></a>
   <a href="LICENSE"><img alt="코드 MIT" src="https://img.shields.io/badge/%EC%BD%94%EB%93%9C-MIT-4FBBAB"></a>
   <a href="https://www.difluid.kr"><img alt="difluid.kr" src="https://img.shields.io/badge/%EA%B3%B5%EC%8B%9D%EB%AA%B0-difluid.kr-0D0F0F"></a>
+  <a href="https://180coffee.com"><img alt="Omix Plus 기여: 180커피로스터스" src="https://img.shields.io/badge/Omix%20Plus%20%EA%B8%B0%EC%97%AC-180%EC%BB%A4%ED%94%BC%EB%A1%9C%EC%8A%A4%ED%84%B0%EC%8A%A4-6F4E37"></a>
 </p>
 
 # DiFluid BLE 개발자 가이드
@@ -43,6 +44,13 @@ python examples/python/r2_minimal.py listen --address <주소> --single
 - **문서와 다른 점** — 본사 문서의 오타와 어긋남을 실물 바이트와 프레임 규칙으로 바로잡았습니다(실물로 확인한 항목에는 ✅).
 - **제품에 붙여 본 경험** — 실제 제품에 통합하며 만난 함정과 그 뒤 정한 규칙을 함께 적었습니다.
 
+## 업데이트 이력
+
+| 날짜 | 내용 |
+|---|---|
+| 2026-11-02 | **Omix Plus** 수신 가이드·예제 추가([omixplus/](omixplus/README.md)). 소스 제공: [180커피로스터스](https://180coffee.com) 이승진 로스터 |
+| 2026-11-02 | 첫 공개 — **R2 Extract**, **Microbalance · Ti** 가이드와 Python 예제(한/영) |
+
 ## 피드백
 
 이 가이드로 개발하셨다면 알려 주세요. 링크를 누르면 제목과 양식이 채워진 메일이 열립니다.
@@ -58,7 +66,7 @@ python examples/python/r2_minimal.py listen --address <주소> --single
 
 ## 기여자
 
-- Omix Plus 연동 자료 제공: 이승진(180커피로스터스)
+- Omix Plus 소스 제공: 이승진 로스터 — [180커피로스터스](https://180coffee.com)
 
 ## 라이선스
 

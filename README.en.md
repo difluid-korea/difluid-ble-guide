@@ -6,6 +6,7 @@
   <a href="LICENSE-DOCS.md"><img alt="Docs CC BY 4.0" src="https://img.shields.io/badge/docs-CC%20BY%204.0-4FBBAB"></a>
   <a href="LICENSE"><img alt="Code MIT" src="https://img.shields.io/badge/code-MIT-4FBBAB"></a>
   <a href="https://www.difluid.kr"><img alt="difluid.kr" src="https://img.shields.io/badge/store-difluid.kr-0D0F0F"></a>
+  <a href="https://180coffee.com"><img alt="Omix Plus contributor: 180 Coffee Roasters" src="https://img.shields.io/badge/Omix%20Plus%20contributor-180%20Coffee%20Roasters-6F4E37"></a>
 </p>
 
 # DiFluid BLE Developer Guide
@@ -43,6 +44,13 @@ python examples/python/r2_minimal.py listen --address <ADDRESS> --single
 - **Where the docs differ** — typos and mismatches in the vendor docs, corrected against real bytes or the frame rules (items checked on a device are marked ✅).
 - **Product experience** — pitfalls we hit integrating into a real product, and the rules we adopted.
 
+## Update history
+
+| Date | Change |
+|---|---|
+| 2026-11-02 | Added the **Omix Plus** receive guide and example ([omixplus/](omixplus/README.en.md)). Source contributed by roaster 이승진 of [180 Coffee Roasters](https://180coffee.com) |
+| 2026-11-02 | First release — **R2 Extract** and **Microbalance · Ti** guides with Python examples (Korean / English) |
+
 ## Feedback
 
 If you built something with this guide, tell us. Each link opens an email with the subject and a short form filled in.
@@ -58,7 +66,7 @@ If you built something with this guide, tell us. Each link opens an email with t
 
 ## Contributors
 
-- Omix Plus integration material: 이승진(180커피로스터스)
+- Omix Plus source: roaster 이승진 — [180 Coffee Roasters](https://180coffee.com)
 
 ## License
 

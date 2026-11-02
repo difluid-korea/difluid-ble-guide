@@ -2,9 +2,9 @@
 
 [한국어](README.md) · **English** · [← Guide home](../README.en.md)
 
-How to receive DiFluid **Omix Plus** bean analyzer results (roast color, moisture, density, ambient temperature and humidity) over BLE. Based on material from 이승진(180커피로스터스), who built a receiver for the roastery.
+How to receive DiFluid **Omix Plus** bean analyzer results (roast color, moisture, density, ambient temperature and humidity) over BLE. Based on material from 이승진 (180 Coffee Roasters), who built a receiver for the roastery.
 
-- Contributed by: 이승진(180커피로스터스)
+- Contributed by: roaster 이승진 — [180 Coffee Roasters](https://180coffee.com)
 - Product: [difluid.kr/OmixPlus](https://www.difluid.kr/OmixPlus)
 - Vendor document: none. The [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) README lists Omix as "WIP" (checked 2026-11-02).
 
@@ -67,4 +67,4 @@ Other units, firmware or operating systems may differ.
 
 ## Source
 
-Protocol notes, captures and device checks: 이승진(180커피로스터스). DiFluid Korea recomputed the captures and wrote them up in Korean and English. The example code was written by DiFluid Korea.
+Protocol notes, captures and device checks: 이승진 (180 Coffee Roasters). DiFluid Korea recomputed the captures and wrote them up in Korean and English. The example code was written by DiFluid Korea.

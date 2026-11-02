@@ -4,7 +4,7 @@
 
 DiFluid **Omix Plus** 원두 분석기의 측정 결과(색도·수분·밀도·주변 온습도)를 BLE 로 받는 방법. 180커피로스터스가 업무용 수신기를 만들며 남긴 자료를 받아 정리했다.
 
-- 자료 제공: 이승진(180커피로스터스)
+- 자료 제공: 이승진 로스터 — [180커피로스터스](https://180coffee.com)
 - 제품: [difluid.kr/OmixPlus](https://www.difluid.kr/OmixPlus)
 - 벤더 문서: 없음. [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) README 에 Omix 는 「WIP」로만 있다(2026-11-02 확인).
 

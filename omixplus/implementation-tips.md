@@ -3,7 +3,7 @@
 [← Omix Plus](README.md) · [English](README.en.md) · [프로토콜 · Protocol](protocol.md)
 
 180커피로스터스 수신기의 규칙을 정리했다. 근거는 [프로토콜](protocol.md)과 [확인 기록](verification.md).<br>
-Rules taken from the receiver built by 이승진(180커피로스터스). See the [protocol](protocol.md) and [verification](verification.md) pages for the evidence.
+Rules taken from the receiver built by 이승진 (180 Coffee Roasters). See the [protocol](protocol.md) and [verification](verification.md) pages for the evidence.
 
 ## 1. 쓰지 않는다 · Do not write
 

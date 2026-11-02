@@ -3,7 +3,7 @@
 [← Omix Plus](../README.md) · [English](../README.en.md)
 
 이승진(180커피로스터스)의 수신기 로그에서 뽑은 Omix Plus notify 프레임이다(Windows, WinRT BLE, bleak). 프레임 바이트는 수정하지 않았다.<br>
-Omix Plus notification frames taken from the receiver logs of 이승진(180커피로스터스) (Windows, WinRT BLE, bleak). Frame bytes are unchanged.
+Omix Plus notification frames taken from the receiver logs of 이승진 (180 Coffee Roasters) (Windows, WinRT BLE, bleak). Frame bytes are unchanged.
 
 ## 목록 · Files
 

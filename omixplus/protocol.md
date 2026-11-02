@@ -3,7 +3,7 @@
 [← Omix Plus](README.md) · [English](README.en.md)
 
 벤더 문서가 없는 기기다. 이 문서는 이승진(180커피로스터스)의 자료와 [캡처](captures/README.md)를 근거로 하며, 측정 시작·설정 같은 명령은 다루지 않는다.<br>
-There is no vendor document for this device. This page is based on material from 이승진(180커피로스터스) and the [captures](captures/README.md). It does not cover commands such as starting a measurement or settings.
+There is no vendor document for this device. This page is based on material from 이승진 (180 Coffee Roasters) and the [captures](captures/README.md). It does not cover commands such as starting a measurement or settings.
 
 ✅ 기여자 실측 · contributor, on a device　재계산 · recomputed from the captures　📄 벤더 문서 · vendor document　❓ 미확인 · unknown
 

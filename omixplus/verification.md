@@ -3,7 +3,7 @@
 [← Omix Plus](README.md) · [English](README.en.md) · [프로토콜 · Protocol](protocol.md)
 
 기기 확인은 이승진(180커피로스터스)이 Omix Plus 1대로 했다. DiFluid Korea 는 2026-11-02 에 공개 캡처의 바이트를 다시 계산해 맞춰 보았고, 기기로 재현하지는 않았다.<br>
-The device checks were done by 이승진(180커피로스터스) on one Omix Plus. On 2026-11-02 DiFluid Korea recomputed the bytes of the published captures; nothing was reproduced on a device.
+The device checks were done by 이승진 (180 Coffee Roasters) on one Omix Plus. On 2026-11-02 DiFluid Korea recomputed the bytes of the published captures; nothing was reproduced on a device.
 
 ## 1. 시험 환경(기여자) · Contributor's setup
 
