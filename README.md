@@ -14,7 +14,7 @@
 DiFluid 기기를 블루투스(BLE)로 내 앱·기기에 붙이는 방법을 **실제 기기로 확인해** 정리했습니다. 바이트 예시, 실측 타이밍, 본사 문서와 다른 점, 바로 돌려 볼 수 있는 Python 예제를 담았습니다.
 
 > [!NOTE]
-> DiFluid 한국 공식 대리점 **비다스테크(Vidastech)** 가 운영합니다. 프로토콜의 정본은 DiFluid 본사의 [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) 이며, 이 가이드는 그것을 실제 기기로 확인하고 보완합니다.
+> DiFluid 한국 공식 대리점 **비다스테크(Vidastech)** 가 운영합니다. 프로토콜의 정본은 DiFluid 본사의 [difluid-sdk-demo](https://github.com/DiFluid/difluid-sdk-demo) 이며, 이 가이드는 그것을 실제 기기로 확인하고 보완합니다. 본사 문서 목록은 [본사 공식 자료](#본사-공식-자료)에 있습니다.
 
 ## 기기
 
@@ -44,10 +44,25 @@ python examples/python/r2_minimal.py listen --address <주소> --single
 - **문서와 다른 점** — 본사 문서의 오타와 어긋남을 실물 바이트와 프레임 규칙으로 바로잡았습니다(실물로 확인한 항목에는 ✅).
 - **제품에 붙여 본 경험** — 실제 제품에 통합하며 만난 함정과 그 뒤 정한 규칙을 함께 적었습니다.
 
+## 본사 공식 자료
+
+DiFluid 본사가 GitHub([DiFluid](https://github.com/DiFluid))에 공개한 자료입니다. 이 가이드는 [difluid-sdk-demo 커밋 `df4e073`](https://github.com/DiFluid/difluid-sdk-demo/tree/df4e0731dc646b9110479cb3b39bb69346e0a640)(2024-12-24, 2026-11-02 현재 최신)을 실기와 대조했습니다. 「확인한 판」은 그 커밋에 고정한 링크이고, 「최신판」은 본사가 문서를 고치면 함께 바뀝니다.
+
+| 본사 문서 | 대상 | 확인한 판 | 최신판 | 이 가이드 |
+|---|---|---|---|---|
+| difluid-protocol.md | 공통 프레임 형식 | [v1.0.0 · 2023-03-18](https://github.com/DiFluid/difluid-sdk-demo/blob/df4e0731dc646b9110479cb3b39bb69346e0a640/docs/difluid-protocol.md) | [보기](https://github.com/DiFluid/difluid-sdk-demo/blob/master/docs/difluid-protocol.md) | 프레임: [R2](r2/protocol.md#2-프레임--frame) · [저울](microbalance/protocol.md#2-프레임--frame) · [Omix Plus](omixplus/protocol.md#2-프레임--frame) |
+| protocolR2.md | R2 Extract | [v1.0.0 · 2023-03-18](https://github.com/DiFluid/difluid-sdk-demo/blob/df4e0731dc646b9110479cb3b39bb69346e0a640/docs/protocolR2.md) | [보기](https://github.com/DiFluid/difluid-sdk-demo/blob/master/docs/protocolR2.md) | [문서와 다른 점](r2/protocol.md#6-벤더-문서와-다른-점--differences-from-the-vendor-document) |
+| protocolMicrobalance.md | Microbalance · Ti | [v1.0.0 · 2024-12-24](https://github.com/DiFluid/difluid-sdk-demo/blob/df4e0731dc646b9110479cb3b39bb69346e0a640/docs/protocolMicrobalance.md) | [보기](https://github.com/DiFluid/difluid-sdk-demo/blob/master/docs/protocolMicrobalance.md) | [문서와 다른 점](microbalance/protocol.md#9-벤더-문서와-다른-점--differences-from-the-vendor-document) |
+| protocolOmni.md | Omni — Omix Plus 와 다른 기기 | [v1.0.0 · 2024-12-24](https://github.com/DiFluid/difluid-sdk-demo/blob/df4e0731dc646b9110479cb3b39bb69346e0a640/docs/protocolOmni.md) | [보기](https://github.com/DiFluid/difluid-sdk-demo/blob/master/docs/protocolOmni.md) | [Omix Plus 와 비교](omixplus/protocol.md#6-벤더-문서와-비교--compared-with-the-vendor-documents) |
+| README | 연결 절차, 데모 앱(uniapp) 실행법 | [2024-12-24](https://github.com/DiFluid/difluid-sdk-demo/blob/df4e0731dc646b9110479cb3b39bb69346e0a640/README.md) | [보기](https://github.com/DiFluid/difluid-sdk-demo/blob/master/README.md) | — |
+
+함께 볼 것: [General Coffee Concept](https://github.com/DiFluid/General-Coffee-Concept) — 본사의 커피 개념 해설. 브루 컨트롤 차트 글이 있고, TDS·추출 수율 글은 비어 있습니다(2026-11-02 확인).
+
 ## 업데이트 이력
 
 | 날짜 | 내용 |
 |---|---|
+| 2026-11-02 | 첫 화면에 [본사 공식 자료](#본사-공식-자료) 표 추가 — 대조한 본사 커밋(`df4e073`)에 고정한 링크와 최신판 링크 |
 | 2026-11-02 | **Omix Plus** 수신 가이드·예제 추가([omixplus/](omixplus/README.md)). 소스 제공: [180커피로스터스](https://180coffee.com) 이승진 로스터 |
 | 2026-11-02 | 첫 공개 — **R2 Extract**, **Microbalance · Ti** 가이드와 Python 예제(한/영) |
 
